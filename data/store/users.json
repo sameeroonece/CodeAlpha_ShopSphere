@@ -1,0 +1,66 @@
+[
+  {
+    "_id": "usr_admin_001",
+    "name": "Alex Morgan (Admin)",
+    "email": "admin@shopsphere.com",
+    "password": "admin123",
+    "role": "admin",
+    "phone": "+1 (555) 019-2834",
+    "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80",
+    "addresses": [
+      {
+        "fullName": "Alex Morgan",
+        "addressLine": "742 Evergreen Terrace",
+        "city": "Springfield",
+        "state": "Oregon",
+        "postalCode": "97477",
+        "country": "United States",
+        "isDefault": true
+      }
+    ],
+    "createdAt": "2026-11-05T05:50:08.627Z"
+  },
+  {
+    "_id": "usr_cust_002",
+    "name": "Sarah Jenkins",
+    "email": "customer@shopsphere.com",
+    "password": "password123",
+    "role": "customer",
+    "phone": "+1 (555) 432-8765",
+    "avatar": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=200&q=80",
+    "addresses": [
+      {
+        "fullName": "Sarah Jenkins",
+        "addressLine": "124 Conch Street",
+        "city": "Seattle",
+        "state": "Washington",
+        "postalCode": "98101",
+        "country": "United States",
+        "isDefault": true
+      }
+    ],
+    "createdAt": "2026-11-05T05:50:08.627Z"
+  },
+  {
+    "_id": "use_1793859333912_208uf",
+    "createdAt": "2026-11-05T06:15:33.912Z",
+    "name": "CodeAlpha Intern",
+    "email": "intern_1793859333911@shopsphere.com",
+    "password": "b0fcc7d36a15f27cf4a3fa54da4b0d4e0b2f155be3a5c6ce6bab97a694326ea8",
+    "phone": "+1 555-019-8877",
+    "role": "customer",
+    "avatar": "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=200&q=80",
+    "addresses": []
+  },
+  {
+    "_id": "use_1793870534683_anrra",
+    "createdAt": "2026-11-05T09:22:14.683Z",
+    "name": "CodeAlpha Intern",
+    "email": "intern_1793870534681@shopsphere.com",
+    "password": "b0fcc7d36a15f27cf4a3fa54da4b0d4e0b2f155be3a5c6ce6bab97a694326ea8",
+    "phone": "+1 555-019-8877",
+    "role": "customer",
+    "avatar": "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=200&q=80",
+    "addresses": []
+  }
+]

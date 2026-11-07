@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Wishlist | ShopSphere</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+  <!-- Top Announcement Bar -->
+  <div class="top-bar">
+    <div class="container">
+      <div class="top-bar-left">
+        <span><i class="fa-solid fa-bolt" style="color:#f59e0b;"></i> Use code <strong>ALPHA10</strong> for 10% off your wishlist items!</span>
+      </div>
+      <div class="top-bar-right">
+        <a href="/products.html" class="top-bar-link"><i class="fa-solid fa-truck-fast"></i> Free Shipping > $99</a>
+        <a href="/orders.html" class="top-bar-link"><i class="fa-solid fa-location-dot"></i> Track Order</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="main-header">
+    <div class="container header-inner">
+      <a href="/index.html" class="brand-logo">
+        <div class="logo-icon"><i class="fa-solid fa-bag-shopping"></i></div>
+        <span>Shop<span class="highlight">Sphere</span></span>
+      </a>
+
+      <div class="search-wrapper">
+        <form class="search-form" id="global-search-form">
+          <i class="fa-solid fa-magnifying-glass" style="color:var(--text-light); margin-right:8px;"></i>
+          <input type="text" id="global-search-input" class="search-input" placeholder="Search wishlist or products...">
+          <button type="submit" class="search-btn"><i class="fa-solid fa-arrow-right"></i></button>
+        </form>
+      </div>
+
+      <div class="header-actions">
+        <a href="/wishlist.html" class="action-btn" title="View Wishlist" style="background:var(--primary-light); color:var(--primary); border-color:var(--primary);">
+          <i class="fa-solid fa-heart" style="color:#ef4444;"></i>
+          <span class="badge-count wishlist-count-badge" style="display:none;">0</span>
+        </a>
+        <button class="action-btn" onclick="Cart.toggleDrawer(true)" title="Shopping Cart">
+          <i class="fa-solid fa-cart-shopping"></i>
+          <span class="badge-count cart-count-badge" style="display:none;">0</span>
+        </button>
+        <div id="nav-user-container"></div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Page Banner -->
+  <div style="background: linear-gradient(135deg, #1e1b4b, #312e81); color: white; padding: 36px 0;">
+    <div class="container" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:14px;">
+      <div>
+        <h1 style="font-size: 2.2rem; font-weight: 800; margin-bottom: 6px;">Saved Wishlist <span id="wishlist-page-count" style="font-size:1.2rem; color:#c7d2fe; font-weight:normal;"></span></h1>
+        <p style="color: #c7d2fe; font-size: 0.95rem;">Keep track of products you love and move them directly to cart anytime.</p>
+      </div>
+      <button class="btn btn-outline" onclick="clearAllWishlist()" style="border-color:rgba(255,255,255,0.4);">
+        <i class="fa-solid fa-trash-can"></i> Clear Wishlist
+      </button>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <main class="container" style="padding: 40px 0 60px;">
+    <!-- Empty State -->
+    <div id="wishlist-empty-state" style="display:none; text-align:center; padding:80px 20px; background:white; border-radius:var(--radius-lg); border:1px solid var(--border);">
+      <i class="fa-regular fa-heart" style="font-size:4rem; color:#cbd5e1; margin-bottom:18px;"></i>
+      <h2 style="font-size:1.6rem; font-weight:800; color:var(--dark); margin-bottom:8px;">Your wishlist is currently empty</h2>
+      <p style="color:var(--text-muted); margin-bottom:24px;">Click the heart icon on any product in our store to save it here for later.</p>
+      <a href="/products.html" class="btn btn-brand">Explore Store Catalog</a>
+    </div>
+
+    <!-- Active Wishlist Grid -->
+    <div class="product-grid" id="wishlist-grid">
+      <!-- Populated via wishlist.js -->
+    </div>
+  </main>
+
+  <!-- Slide-over Cart Drawer -->
+  <div class="cart-drawer-overlay" id="cart-drawer-overlay" onclick="Cart.toggleDrawer(false)"></div>
+  <aside class="cart-drawer" id="cart-drawer">
+    <div class="cart-drawer-header">
+      <h3>Your Shopping Bag</h3>
+      <button class="close-drawer-btn" onclick="Cart.toggleDrawer(false)">&times;</button>
+    </div>
+    <div class="cart-drawer-body" id="cart-drawer-items"></div>
+    <div class="cart-drawer-footer">
+      <div class="drawer-subtotal">
+        <span>Subtotal:</span>
+        <span id="cart-drawer-subtotal" style="color:var(--primary);">$0.00</span>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:10px;">
+        <a href="/checkout.html" class="btn btn-brand" style="width:100%; text-align:center;">
+          <i class="fa-solid fa-lock"></i> Checkout Now
+        </a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Footer -->
+  <footer class="main-footer">
+    <div class="container footer-bottom">
+      <div>&copy; 2026 ShopSphere Inc. CodeAlpha Internship Task 1.</div>
+      <a href="/products.html" style="color:white; font-weight:700;">Browse More Products &rarr;</a>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="/js/api.js"></script>
+  <script src="/js/main.js"></script>
+  <script src="/js/wishlist.js"></script>
+</body>
+</html>

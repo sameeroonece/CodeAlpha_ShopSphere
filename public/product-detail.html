@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Details | ShopSphere Smart Shopping</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <link rel="stylesheet" href="/css/style.css">
+  <style>
+    .breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      padding: 20px 0;
+    }
+    .breadcrumb a:hover {
+      color: var(--primary);
+    }
+    .detail-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.15fr;
+      gap: 48px;
+      padding-bottom: 50px;
+    }
+    .gallery-container {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .main-img-wrap {
+      width: 100%;
+      height: 480px;
+      background: #f1f5f9;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border);
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .main-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+    .main-img-wrap:hover img {
+      transform: scale(1.04);
+    }
+    .thumbs-row {
+      display: flex;
+      gap: 12px;
+      overflow-x: auto;
+    }
+    .thumb-box {
+      width: 80px;
+      height: 80px;
+      border-radius: var(--radius-sm);
+      border: 2px solid transparent;
+      overflow: hidden;
+      cursor: pointer;
+      background: #f1f5f9;
+      flex-shrink: 0;
+      transition: var(--transition);
+    }
+    .thumb-box.active {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.2);
+    }
+    .thumb-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .detail-category-tag {
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--primary);
+      letter-spacing: 0.5px;
+    }
+    .detail-title {
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: var(--dark);
+      margin: 8px 0 14px;
+      line-height: 1.2;
+    }
+    .detail-price-box {
+      display: flex;
+      align-items: baseline;
+      gap: 14px;
+      padding: 16px 0;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      margin: 18px 0;
+    }
+    .detail-price-current {
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: var(--dark);
+    }
+    .detail-price-orig {
+      font-size: 1.2rem;
+      color: var(--text-light);
+      text-decoration: line-through;
+    }
+    .detail-features {
+      margin: 20px 0;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      font-size: 0.95rem;
+      color: var(--text-main);
+    }
+    .detail-actions-row {
+      display: flex;
+      gap: 14px;
+      margin: 28px 0;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .detail-tabs-header {
+      display: flex;
+      gap: 24px;
+      border-bottom: 2px solid var(--border);
+      margin-bottom: 24px;
+    }
+    .tab-btn {
+      padding: 12px 6px;
+      background: transparent;
+      border: none;
+      border-bottom: 3px solid transparent;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: var(--transition);
+      margin-bottom: -2px;
+    }
+    .tab-btn.active {
+      color: var(--primary);
+      border-bottom-color: var(--primary);
+    }
+    .specs-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    .specs-table tr {
+      border-bottom: 1px solid var(--border);
+    }
+    .specs-table td {
+      padding: 12px 14px;
+      font-size: 0.9rem;
+    }
+    .specs-table tr:nth-child(even) {
+      background: #f8fafc;
+    }
+    @media (max-width: 900px) {
+      .detail-grid {
+        grid-template-columns: 1fr;
+      }
+      .main-img-wrap {
+        height: 360px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Announcement Bar -->
+  <div class="top-bar">
+    <div class="container">
+      <div class="top-bar-left">
+        <span><i class="fa-solid fa-bolt" style="color:#f59e0b;"></i> Use coupon <strong>ALPHA10</strong> for 10% instant discount!</span>
+      </div>
+      <div class="top-bar-right">
+        <a href="/products.html" class="top-bar-link"><i class="fa-solid fa-truck-fast"></i> Free Shipping > $99</a>
+        <a href="/orders.html" class="top-bar-link"><i class="fa-solid fa-location-dot"></i> Track Order</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="main-header">
+    <div class="container header-inner">
+      <a href="/index.html" class="brand-logo">
+        <div class="logo-icon"><i class="fa-solid fa-bag-shopping"></i></div>
+        <span>Shop<span class="highlight">Sphere</span></span>
+      </a>
+
+      <div class="search-wrapper">
+        <form class="search-form" id="global-search-form">
+          <i class="fa-solid fa-magnifying-glass" style="color:var(--text-light); margin-right:8px;"></i>
+          <input type="text" id="global-search-input" class="search-input" placeholder="Search smart tech, headphones, laptops, apparel...">
+          <button type="submit" class="search-btn"><i class="fa-solid fa-arrow-right"></i></button>
+        </form>
+      </div>
+
+      <div class="header-actions">
+        <a href="/wishlist.html" class="action-btn" title="View Wishlist">
+          <i class="fa-regular fa-heart"></i>
+          <span class="badge-count wishlist-count-badge" style="display:none;">0</span>
+        </a>
+        <button class="action-btn" onclick="Cart.toggleDrawer(true)" title="Shopping Cart">
+          <i class="fa-solid fa-cart-shopping"></i>
+          <span class="badge-count cart-count-badge" style="display:none;">0</span>
+        </button>
+        <div id="nav-user-container"></div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="container" id="product-detail-container">
+    <!-- Breadcrumbs -->
+    <nav class="breadcrumb">
+      <a href="/index.html">Home</a>
+      <span>/</span>
+      <a href="/products.html">Products</a>
+      <span>/</span>
+      <span id="breadcrumb-category">Category</span>
+      <span>/</span>
+      <span id="breadcrumb-product" style="color:var(--dark); font-weight:700;">Product Name</span>
+    </nav>
+
+    <!-- Product Main Detail View -->
+    <div class="detail-grid">
+      <!-- Image Gallery -->
+      <div class="gallery-container">
+        <div class="main-img-wrap">
+          <img src="" id="main-gallery-image" alt="Product Image">
+        </div>
+        <div class="thumbs-row" id="gallery-thumbnails">
+          <!-- Populated via product-detail.js -->
+        </div>
+      </div>
+
+      <!-- Product Information -->
+      <div class="detail-info">
+        <span class="detail-category-tag" id="detail-category">ELECTRONICS</span>
+        <h1 class="detail-title" id="detail-title">Loading Product Details...</h1>
+
+        <div style="display:flex; align-items:center; gap:12px; margin-bottom:12px;">
+          <div class="rating-stars" id="detail-stars" style="font-size:1.1rem; color:#f59e0b;"></div>
+          <span style="font-size:0.9rem; color:var(--text-muted);" id="detail-reviews-count">(0 reviews)</span>
+          <span style="color:var(--border);">|</span>
+          <span id="detail-stock-status" style="font-size:0.9rem; font-weight:700;">Checking stock...</span>
+        </div>
+
+        <div class="detail-price-box">
+          <span class="detail-price-current" id="detail-price">$0.00</span>
+          <span class="detail-price-orig" id="detail-original-price" style="display:none;">$0.00</span>
+          <span id="detail-discount-badge" style="display:none; background:#fef2f2; color:#ef4444; font-size:0.85rem; font-weight:800; padding:4px 10px; border-radius:var(--radius-sm);"></span>
+        </div>
+
+        <p style="font-size:1rem; color:var(--text-muted); line-height:1.7;" id="detail-short-desc">
+          Description loading...
+        </p>
+
+        <ul class="detail-features" id="detail-features-list">
+          <!-- Populated via product-detail.js -->
+        </ul>
+
+        <!-- Quantity & Add to Cart Action -->
+        <div class="detail-actions-row">
+          <div class="qty-stepper" style="padding:6px;">
+            <button class="qty-btn" onclick="changeQuantity(-1)" style="width:34px; height:34px;">-</button>
+            <input type="text" id="detail-quantity-input" value="1" readonly style="width:45px; text-align:center; border:none; font-weight:800; font-size:1rem; outline:none;">
+            <button class="qty-btn" onclick="changeQuantity(1)" style="width:34px; height:34px;">+</button>
+          </div>
+
+          <button class="btn btn-brand" onclick="addCurrentToCart()" style="padding:14px 28px;">
+            <i class="fa-solid fa-cart-plus"></i> Add to Cart
+          </button>
+
+          <button class="btn btn-primary" onclick="buyNow()" style="background:var(--dark); color:white; padding:14px 24px;">
+            <i class="fa-solid fa-bolt"></i> Buy Now
+          </button>
+
+          <button class="btn btn-outline" id="detail-wishlist-btn" onclick="toggleDetailWishlist()" style="color:var(--dark); border-color:var(--border); padding:14px 18px;">
+            <i class="fa-regular fa-heart"></i> Add to Wishlist
+          </button>
+        </div>
+
+        <!-- Guarantee Row -->
+        <div style="background:#f8fafc; border:1px solid var(--border); border-radius:var(--radius-md); padding:16px 20px; display:grid; grid-template-columns:1fr 1fr; gap:16px; font-size:0.85rem;">
+          <div style="display:flex; align-items:center; gap:10px;">
+            <i class="fa-solid fa-shield-halved" style="color:var(--primary); font-size:1.2rem;"></i>
+            <span><strong>2-Year Warranty</strong> Official coverage included</span>
+          </div>
+          <div style="display:flex; align-items:center; gap:10px;">
+            <i class="fa-solid fa-truck" style="color:var(--success); font-size:1.2rem;"></i>
+            <span><strong>Free Shipping</strong> On orders over $99</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tabs Section: Specs, Reviews, Shipping -->
+    <div style="margin-top: 40px; padding-top: 40px; border-top: 1px solid var(--border);">
+      <div class="detail-tabs-header">
+        <button class="tab-btn active" onclick="switchDetailTab('specs', this)">Technical Specifications</button>
+        <button class="tab-btn" onclick="switchDetailTab('reviews', this)">Customer Reviews</button>
+        <button class="tab-btn" onclick="switchDetailTab('shipping', this)">Shipping &amp; Returns</button>
+      </div>
+
+      <!-- Specs Pane -->
+      <div class="detail-tab-pane" id="tab-pane-specs">
+        <div style="background:white; border:1px solid var(--border); border-radius:var(--radius-md); overflow:hidden; max-width:800px;">
+          <table class="specs-table" id="tab-specs-table">
+            <!-- Populated via JS -->
+          </table>
+        </div>
+      </div>
+
+      <!-- Reviews Pane -->
+      <div class="detail-tab-pane" id="tab-pane-reviews" style="display:none;">
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:40px; max-width:960px;">
+          <div>
+            <h3 style="font-size:1.2rem; font-weight:800; margin-bottom:16px;">Write a Customer Review</h3>
+            <form onsubmit="submitReview(event)" style="display:flex; flex-direction:column; gap:14px;">
+              <div>
+                <label style="display:block; font-size:0.85rem; font-weight:700; margin-bottom:6px;">Your Name</label>
+                <input type="text" id="review-name" required placeholder="Alex M." style="width:100%; padding:10px 14px; border:1px solid var(--border); border-radius:var(--radius-sm); outline:none;">
+              </div>
+              <div>
+                <label style="display:block; font-size:0.85rem; font-weight:700; margin-bottom:6px;">Rating</label>
+                <select style="width:100%; padding:10px 14px; border:1px solid var(--border); border-radius:var(--radius-sm); outline:none;">
+                  <option>★★★★★ (5 Stars - Exceptional)</option>
+                  <option>★★★★☆ (4 Stars - Great)</option>
+                  <option>★★★☆☆ (3 Stars - Average)</option>
+                </select>
+              </div>
+              <div>
+                <label style="display:block; font-size:0.85rem; font-weight:700; margin-bottom:6px;">Review Feedback</label>
+                <textarea id="review-comment" rows="4" required placeholder="Share your experience with this item..." style="width:100%; padding:10px 14px; border:1px solid var(--border); border-radius:var(--radius-sm); outline:none; font-family:inherit;"></textarea>
+              </div>
+              <button type="submit" class="btn btn-brand" style="align-self:flex-start;">Submit Verified Review</button>
+            </form>
+          </div>
+
+          <div>
+            <h3 style="font-size:1.2rem; font-weight:800; margin-bottom:16px;">Recent Verified Reviews</h3>
+            <div style="display:flex; flex-direction:column; gap:16px;">
+              <div style="background:#f8fafc; border:1px solid var(--border); border-radius:var(--radius-sm); padding:16px;">
+                <div style="color:#f59e0b; margin-bottom:4px;">★★★★★</div>
+                <div style="font-weight:700; font-size:0.9rem;">Outstanding build quality &amp; performance</div>
+                <p style="font-size:0.85rem; color:var(--text-muted); margin:4px 0 8px;">Exceeded every specification listed. The battery life and design feel ultra premium.</p>
+                <span style="font-size:0.75rem; color:var(--text-light);">&mdash; Michael S. (Verified Buyer)</span>
+              </div>
+              <div style="background:#f8fafc; border:1px solid var(--border); border-radius:var(--radius-sm); padding:16px;">
+                <div style="color:#f59e0b; margin-bottom:4px;">★★★★★</div>
+                <div style="font-weight:700; font-size:0.9rem;">Quick dispatch and well packaged</div>
+                <p style="font-size:0.85rem; color:var(--text-muted); margin:4px 0 8px;">Arrived in 2 days in pristine factory condition. Extremely satisfied!</p>
+                <span style="font-size:0.75rem; color:var(--text-light);">&mdash; Sarah K. (Verified Buyer)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Shipping Pane -->
+      <div class="detail-tab-pane" id="tab-pane-shipping" style="display:none;">
+        <div style="background:#ffffff; border:1px solid var(--border); border-radius:var(--radius-md); padding:24px; max-width:800px; line-height:1.7; font-size:0.95rem; color:var(--text-main);">
+          <h4 style="font-size:1.1rem; font-weight:800; color:var(--dark); margin-bottom:8px;">Fast &amp; Tracked Global Dispatch</h4>
+          <p style="margin-bottom:14px;">All orders are dispatched from our fulfillment hub within 24 hours of placement. Standard shipping takes 3-5 business days, while Express priority delivery delivers within 1-2 business days.</p>
+          <h4 style="font-size:1.1rem; font-weight:800; color:var(--dark); margin-bottom:8px;">30-Day Hassle-Free Returns</h4>
+          <p>If you're not completely in love with your purchase, return it in original packaging within 30 days for an instant replacement or 100% refund.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Related Products -->
+    <div style="margin: 60px 0 40px;">
+      <div class="section-header">
+        <div class="section-title-wrap">
+          <h2>Related Products You Might Like</h2>
+          <p>Similar high-performance picks from the same collection</p>
+        </div>
+      </div>
+      <div class="product-grid" id="related-products-grid">
+        <!-- Rendered via JS -->
+      </div>
+    </div>
+  </main>
+
+  <!-- Slide-over Cart Drawer -->
+  <div class="cart-drawer-overlay" id="cart-drawer-overlay" onclick="Cart.toggleDrawer(false)"></div>
+  <aside class="cart-drawer" id="cart-drawer">
+    <div class="cart-drawer-header">
+      <h3>Your Shopping Bag</h3>
+      <button class="close-drawer-btn" onclick="Cart.toggleDrawer(false)">&times;</button>
+    </div>
+    <div class="cart-drawer-body" id="cart-drawer-items"></div>
+    <div class="cart-drawer-footer">
+      <div class="drawer-subtotal">
+        <span>Subtotal:</span>
+        <span id="cart-drawer-subtotal" style="color:var(--primary);">$0.00</span>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:10px;">
+        <a href="/checkout.html" class="btn btn-brand" style="width:100%; text-align:center;">
+          <i class="fa-solid fa-lock"></i> Checkout Now
+        </a>
+        <a href="/cart.html" class="btn btn-outline" style="width:100%; text-align:center; color:var(--dark); border-color:var(--border);">
+          View Full Cart
+        </a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Footer -->
+  <footer class="main-footer">
+    <div class="container footer-bottom">
+      <div>&copy; 2026 ShopSphere Inc. CodeAlpha Internship Task 1.</div>
+      <a href="/products.html" style="color:white; font-weight:700;">Continue Shopping &rarr;</a>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="/js/api.js"></script>
+  <script src="/js/main.js"></script>
+  <script src="/js/home.js"></script>
+  <script src="/js/product-detail.js"></script>
+</body>
+</html>

@@ -1,0 +1,353 @@
+[
+  {
+    "_id": "ord_1793858824149_d500r",
+    "createdAt": "2026-11-05T06:07:04.149Z",
+    "orderNumber": "SS-2026-8418",
+    "user": {
+      "userId": "usr_cust_002",
+      "name": "Sarah Jenkins",
+      "email": "customer@shopsphere.com"
+    },
+    "items": [
+      {
+        "productId": "prod_001",
+        "name": "AuraSound ANC Wireless Headphones",
+        "price": 199.99,
+        "quantity": 1,
+        "image": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=800&q=80"
+      }
+    ],
+    "shippingAddress": {
+      "fullName": "Sarah Jenkins",
+      "addressLine": "124 Conch Street",
+      "city": "Seattle",
+      "state": "",
+      "postalCode": "98101",
+      "country": "United States",
+      "phone": ""
+    },
+    "paymentMethod": "card",
+    "paymentStatus": "Paid",
+    "orderStatus": "Shipped",
+    "subtotal": 199.99,
+    "discount": 20,
+    "tax": 12.6,
+    "shippingCost": 0,
+    "totalAmount": 192.59,
+    "couponCode": "ALPHA10",
+    "estimatedDelivery": "Mon, Nov 9",
+    "updatedAt": "2026-11-05T06:07:04.151Z"
+  },
+  {
+    "_id": "ord_1793858839890_gxz7e",
+    "createdAt": "2026-11-05T06:07:19.890Z",
+    "orderNumber": "SS-2026-8302",
+    "user": {
+      "userId": "usr_cust_002",
+      "name": "Sarah Jenkins",
+      "email": "customer@shopsphere.com"
+    },
+    "items": [
+      {
+        "productId": "prod_001",
+        "name": "AuraSound ANC Wireless Headphones",
+        "price": 199.99,
+        "quantity": 1,
+        "image": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=800&q=80"
+      }
+    ],
+    "shippingAddress": {
+      "fullName": "Sarah Jenkins",
+      "addressLine": "124 Conch Street",
+      "city": "Seattle",
+      "state": "",
+      "postalCode": "98101",
+      "country": "United States",
+      "phone": ""
+    },
+    "paymentMethod": "card",
+    "paymentStatus": "Paid",
+    "orderStatus": "Shipped",
+    "subtotal": 199.99,
+    "discount": 20,
+    "tax": 12.6,
+    "shippingCost": 0,
+    "totalAmount": 192.59,
+    "couponCode": "ALPHA10",
+    "estimatedDelivery": "Mon, Nov 9",
+    "updatedAt": "2026-11-05T06:07:19.893Z"
+  },
+  {
+    "_id": "ord_1793858997834_8pt6u",
+    "createdAt": "2026-11-05T06:09:57.834Z",
+    "orderNumber": "SS-2026-5977",
+    "user": {
+      "userId": "usr_cust_002",
+      "name": "Sarah Jenkins",
+      "email": "customer@shopsphere.com"
+    },
+    "items": [
+      {
+        "productId": "prod_005",
+        "name": "SoundNova 360 Waterproof Speaker",
+        "price": 64.99,
+        "quantity": 1,
+        "image": "https://images.unsplash.com/photo-1546435770-a3e426bf472b?auto=format&fit=crop&w=800&q=80"
+      }
+    ],
+    "shippingAddress": {
+      "fullName": "Sarah Jenkins",
+      "addressLine": "124 Conch Street",
+      "city": "Seattle",
+      "state": "",
+      "postalCode": "98101",
+      "country": "United States",
+      "phone": ""
+    },
+    "paymentMethod": "card",
+    "paymentStatus": "Paid",
+    "orderStatus": "Shipped",
+    "subtotal": 64.99,
+    "discount": 6.5,
+    "tax": 4.09,
+    "shippingCost": 5.99,
+    "totalAmount": 68.57,
+    "couponCode": "ALPHA10",
+    "estimatedDelivery": "Mon, Nov 9",
+    "updatedAt": "2026-11-05T06:09:57.837Z"
+  },
+  {
+    "_id": "ord_1793859056387_qm5yk",
+    "createdAt": "2026-11-05T06:10:56.387Z",
+    "orderNumber": "SS-2026-1805",
+    "user": {
+      "userId": "usr_cust_002",
+      "name": "Sarah Jenkins",
+      "email": "customer@shopsphere.com"
+    },
+    "items": [
+      {
+        "productId": "prod_005",
+        "name": "SoundNova 360 Waterproof Speaker",
+        "price": 64.99,
+        "quantity": 1,
+        "image": "https://images.unsplash.com/photo-1546435770-a3e426bf472b?auto=format&fit=crop&w=800&q=80"
+      }
+    ],
+    "shippingAddress": {
+      "fullName": "Sarah Jenkins",
+      "addressLine": "124 Conch Street",
+      "city": "Seattle",
+      "state": "",
+      "postalCode": "98101",
+      "country": "United States",
+      "phone": ""
+    },
+    "paymentMethod": "card",
+    "paymentStatus": "Paid",
+    "orderStatus": "Shipped",
+    "subtotal": 64.99,
+    "discount": 6.5,
+    "tax": 4.09,
+    "shippingCost": 5.99,
+    "totalAmount": 68.57,
+    "couponCode": "ALPHA10",
+    "estimatedDelivery": "Mon, Nov 9",
+    "updatedAt": "2026-11-05T06:10:56.389Z"
+  },
+  {
+    "_id": "ord_1793859094806_k8dd9",
+    "createdAt": "2026-11-05T06:11:34.806Z",
+    "orderNumber": "SS-2026-2668",
+    "user": {
+      "userId": "usr_cust_002",
+      "name": "Sarah Jenkins",
+      "email": "customer@shopsphere.com"
+    },
+    "items": [
+      {
+        "productId": "prod_005",
+        "name": "SoundNova 360 Waterproof Speaker",
+        "price": 64.99,
+        "quantity": 1,
+        "image": "https://images.unsplash.com/photo-1546435770-a3e426bf472b?auto=format&fit=crop&w=800&q=80"
+      }
+    ],
+    "shippingAddress": {
+      "fullName": "Sarah Jenkins",
+      "addressLine": "124 Conch Street",
+      "city": "Seattle",
+      "state": "",
+      "postalCode": "98101",
+      "country": "United States",
+      "phone": ""
+    },
+    "paymentMethod": "card",
+    "paymentStatus": "Paid",
+    "orderStatus": "Shipped",
+    "subtotal": 64.99,
+    "discount": 6.5,
+    "tax": 4.09,
+    "shippingCost": 5.99,
+    "totalAmount": 68.57,
+    "couponCode": "ALPHA10",
+    "estimatedDelivery": "Mon, Nov 9",
+    "updatedAt": "2026-11-05T06:11:34.809Z"
+  },
+  {
+    "_id": "ord_1793859333929_aa6b8",
+    "createdAt": "2026-11-05T06:15:33.929Z",
+    "orderNumber": "SS-2026-5499",
+    "user": {
+      "userId": "use_1793859333912_208uf",
+      "name": "CodeAlpha Intern",
+      "email": "intern_1793859333911@shopsphere.com"
+    },
+    "items": [
+      {
+        "productId": "prod_001",
+        "name": "AuraSound ANC Wireless Headphones",
+        "price": 199.99,
+        "quantity": 2,
+        "image": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=800&q=80"
+      }
+    ],
+    "shippingAddress": {
+      "fullName": "CodeAlpha Intern",
+      "addressLine": "123 Innovation Drive",
+      "city": "San Francisco",
+      "state": "CA",
+      "postalCode": "94105",
+      "country": "United States",
+      "phone": "+1 555-019-8877"
+    },
+    "paymentMethod": "card",
+    "paymentStatus": "Paid",
+    "orderStatus": "Delivered",
+    "subtotal": 399.98,
+    "discount": 40,
+    "tax": 25.2,
+    "shippingCost": 0,
+    "totalAmount": 385.18,
+    "couponCode": "ALPHA10",
+    "estimatedDelivery": "Mon, Nov 9",
+    "updatedAt": "2026-11-05T06:15:33.933Z"
+  },
+  {
+    "_id": "ord_1793870524444_vfbqe",
+    "createdAt": "2026-11-05T09:22:04.444Z",
+    "orderNumber": "SS-2026-2390",
+    "user": {
+      "userId": "usr_cust_002",
+      "name": "Sarah Jenkins",
+      "email": "customer@shopsphere.com"
+    },
+    "items": [
+      {
+        "productId": "prod_005",
+        "name": "SoundNova 360 Waterproof Speaker",
+        "price": 64.99,
+        "quantity": 1,
+        "image": "https://images.unsplash.com/photo-1546435770-a3e426bf472b?auto=format&fit=crop&w=800&q=80"
+      }
+    ],
+    "shippingAddress": {
+      "fullName": "Sarah Jenkins",
+      "addressLine": "124 Conch Street",
+      "city": "Seattle",
+      "state": "",
+      "postalCode": "98101",
+      "country": "United States",
+      "phone": ""
+    },
+    "paymentMethod": "card",
+    "paymentStatus": "Paid",
+    "orderStatus": "Shipped",
+    "subtotal": 64.99,
+    "discount": 6.5,
+    "tax": 4.09,
+    "shippingCost": 5.99,
+    "totalAmount": 68.57,
+    "couponCode": "ALPHA10",
+    "estimatedDelivery": "Mon, Nov 9",
+    "updatedAt": "2026-11-05T09:22:04.448Z"
+  },
+  {
+    "_id": "ord_1793870534704_l2gu1",
+    "createdAt": "2026-11-05T09:22:14.704Z",
+    "orderNumber": "SS-2026-7169",
+    "user": {
+      "userId": "use_1793870534683_anrra",
+      "name": "CodeAlpha Intern",
+      "email": "intern_1793870534681@shopsphere.com"
+    },
+    "items": [
+      {
+        "productId": "prod_001",
+        "name": "AuraSound ANC Wireless Headphones",
+        "price": 199.99,
+        "quantity": 2,
+        "image": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=800&q=80"
+      }
+    ],
+    "shippingAddress": {
+      "fullName": "CodeAlpha Intern",
+      "addressLine": "123 Innovation Drive",
+      "city": "San Francisco",
+      "state": "CA",
+      "postalCode": "94105",
+      "country": "United States",
+      "phone": "+1 555-019-8877"
+    },
+    "paymentMethod": "card",
+    "paymentStatus": "Paid",
+    "orderStatus": "Delivered",
+    "subtotal": 399.98,
+    "discount": 40,
+    "tax": 25.2,
+    "shippingCost": 0,
+    "totalAmount": 385.18,
+    "couponCode": "ALPHA10",
+    "estimatedDelivery": "Mon, Nov 9",
+    "updatedAt": "2026-11-05T09:22:14.710Z"
+  },
+  {
+    "_id": "ord_1793873513129_moe9q",
+    "createdAt": "2026-11-05T10:11:53.129Z",
+    "orderNumber": "SS-2026-6964",
+    "user": {
+      "userId": "usr_cust_002",
+      "name": "Sarah Jenkins",
+      "email": "customer@shopsphere.com"
+    },
+    "items": [
+      {
+        "productId": "prod_005",
+        "name": "SoundNova 360 Waterproof Speaker",
+        "price": 64.99,
+        "quantity": 1,
+        "image": "https://images.unsplash.com/photo-1546435770-a3e426bf472b?auto=format&fit=crop&w=800&q=80"
+      }
+    ],
+    "shippingAddress": {
+      "fullName": "Sarah Jenkins",
+      "addressLine": "124 Conch Street",
+      "city": "Seattle",
+      "state": "",
+      "postalCode": "98101",
+      "country": "United States",
+      "phone": ""
+    },
+    "paymentMethod": "card",
+    "paymentStatus": "Paid",
+    "orderStatus": "Shipped",
+    "subtotal": 64.99,
+    "discount": 6.5,
+    "tax": 4.09,
+    "shippingCost": 5.99,
+    "totalAmount": 68.57,
+    "couponCode": "ALPHA10",
+    "estimatedDelivery": "Mon, Nov 9",
+    "updatedAt": "2026-11-05T10:11:53.131Z"
+  }
+]

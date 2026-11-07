@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create an Account | ShopSphere</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <link rel="stylesheet" href="/css/style.css">
+  <style>
+    .auth-wrapper {
+      min-height: calc(100vh - 180px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 20px;
+    }
+    .auth-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 40px;
+      max-width: 480px;
+      width: 100%;
+      box-shadow: var(--shadow-xl);
+    }
+    .input-wrap {
+      position: relative;
+    }
+    .input-wrap input {
+      width: 100%;
+      padding: 12px 14px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      outline: none;
+      font-size: 0.9rem;
+      transition: var(--transition);
+    }
+    .input-wrap input:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="main-header">
+    <div class="container header-inner" style="justify-content:space-between;">
+      <a href="/index.html" class="brand-logo">
+        <div class="logo-icon"><i class="fa-solid fa-bag-shopping"></i></div>
+        <span>Shop<span class="highlight">Sphere</span></span>
+      </a>
+      <a href="/index.html" style="font-size:0.9rem; font-weight:700; color:var(--text-muted);">
+        &larr; Back to Store
+      </a>
+    </div>
+  </header>
+
+  <!-- Register Main -->
+  <main class="auth-wrapper">
+    <div class="auth-card">
+      <div style="text-align: center; margin-bottom: 28px;">
+        <h2 style="font-size: 1.8rem; font-weight: 800; color: var(--dark); margin-bottom: 6px;">Create Your Account</h2>
+        <p style="color: var(--text-muted); font-size: 0.9rem;">Join thousands of shoppers enjoying exclusive discounts &amp; fast checkout.</p>
+      </div>
+
+      <form id="register-form">
+        <div style="margin-bottom: 16px;">
+          <label style="display: block; font-size: 0.85rem; font-weight: 700; margin-bottom: 6px; color: var(--text-main);">Full Name *</label>
+          <div class="input-wrap">
+            <input type="text" id="reg-name" required placeholder="Alex Turner">
+          </div>
+        </div>
+
+        <div style="margin-bottom: 16px;">
+          <label style="display: block; font-size: 0.85rem; font-weight: 700; margin-bottom: 6px; color: var(--text-main);">Email Address *</label>
+          <div class="input-wrap">
+            <input type="email" id="reg-email" required placeholder="alex@example.com">
+          </div>
+        </div>
+
+        <div style="margin-bottom: 16px;">
+          <label style="display: block; font-size: 0.85rem; font-weight: 700; margin-bottom: 6px; color: var(--text-main);">Phone Number</label>
+          <div class="input-wrap">
+            <input type="tel" id="reg-phone" placeholder="+1 (555) 019-2834">
+          </div>
+        </div>
+
+        <div style="margin-bottom: 16px;">
+          <label style="display: block; font-size: 0.85rem; font-weight: 700; margin-bottom: 6px; color: var(--text-main);">Password * (min 6 characters)</label>
+          <div class="input-wrap">
+            <input type="password" id="reg-password" required placeholder="••••••••" minlength="6">
+          </div>
+        </div>
+
+        <div style="margin-bottom: 24px;">
+          <label style="display: block; font-size: 0.85rem; font-weight: 700; margin-bottom: 6px; color: var(--text-main);">Confirm Password *</label>
+          <div class="input-wrap">
+            <input type="password" id="reg-confirm-password" required placeholder="••••••••" minlength="6">
+          </div>
+        </div>
+
+        <button type="submit" id="reg-submit-btn" class="btn btn-brand" style="width: 100%; padding: 13px; font-size: 0.95rem;">
+          Create Account
+        </button>
+      </form>
+
+      <div style="text-align: center; margin-top: 24px; font-size: 0.9rem; color: var(--text-muted);">
+        Already have an account? <a href="/login.html" style="color: var(--primary); font-weight: 700;">Sign In</a>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="main-footer" style="padding: 24px 0;">
+    <div class="container footer-bottom" style="border:none; padding:0;">
+      <div>&copy; 2026 ShopSphere – CodeAlpha Internship Task 1.</div>
+      <div>Full-Stack Web Development</div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="/js/api.js"></script>
+  <script src="/js/main.js"></script>
+  <script src="/js/auth.js"></script>
+</body>
+</html>

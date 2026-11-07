@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout | ShopSphere Secure Order Processing</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <link rel="stylesheet" href="/css/style.css">
+  <style>
+    .checkout-layout {
+      display: grid;
+      grid-template-columns: 1fr 400px;
+      gap: 36px;
+      padding: 40px 0 60px;
+    }
+    .checkout-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 30px;
+      margin-bottom: 24px;
+      box-shadow: var(--shadow-sm);
+    }
+    .checkout-card-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: var(--dark);
+      margin-bottom: 20px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border);
+    }
+    .step-circle {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--primary);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      font-weight: 800;
+    }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+    .form-group {
+      margin-bottom: 16px;
+    }
+    .form-label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 6px;
+    }
+    .form-control {
+      width: 100%;
+      padding: 11px 14px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      outline: none;
+      font-size: 0.9rem;
+      transition: var(--transition);
+    }
+    .form-control:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
+    }
+    /* Payment tabs */
+    .payment-tab-row {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+    .payment-tab {
+      flex: 1;
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 12px 10px;
+      text-align: center;
+      cursor: pointer;
+      font-weight: 700;
+      font-size: 0.85rem;
+      color: var(--text-main);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      transition: var(--transition);
+      background: white;
+    }
+    .payment-tab.active {
+      border-color: var(--primary);
+      background: var(--primary-light);
+      color: var(--primary);
+    }
+    /* Realistic Credit Card Preview */
+    .card-preview {
+      background: linear-gradient(135deg, #1e1b4b 0%, #312e81 60%, #4338ca 100%);
+      color: white;
+      border-radius: var(--radius-md);
+      padding: 24px;
+      margin-bottom: 24px;
+      box-shadow: var(--shadow-lg);
+      position: relative;
+      overflow: hidden;
+    }
+    .card-preview-chip {
+      width: 44px;
+      height: 32px;
+      background: linear-gradient(135deg, #fcd34d, #f59e0b);
+      border-radius: 6px;
+      margin-bottom: 18px;
+    }
+    .card-preview-num {
+      font-family: monospace;
+      font-size: 1.25rem;
+      letter-spacing: 2px;
+      margin-bottom: 16px;
+    }
+    .card-preview-footer {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    @media (max-width: 900px) {
+      .checkout-layout {
+        grid-template-columns: 1fr;
+      }
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Bar -->
+  <div class="top-bar">
+    <div class="container">
+      <div class="top-bar-left">
+        <span><i class="fa-solid fa-lock" style="color:#10b981;"></i> 256-Bit Bank Grade SSL Encrypted Checkout</span>
+      </div>
+      <div class="top-bar-right">
+        <a href="/cart.html" class="top-bar-link">&larr; Return to Cart</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="main-header">
+    <div class="container header-inner">
+      <a href="/index.html" class="brand-logo">
+        <div class="logo-icon"><i class="fa-solid fa-bag-shopping"></i></div>
+        <span>Shop<span class="highlight">Sphere</span></span>
+      </a>
+      <div style="font-weight:700; color:var(--text-muted); font-size:0.95rem;">
+        <i class="fa-solid fa-shield-check" style="color:var(--success);"></i> Secure Checkout
+      </div>
+      <div class="header-actions">
+        <div id="nav-user-container"></div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Checkout Main -->
+  <main class="container">
+    <form id="checkout-form" class="checkout-layout">
+      <!-- Left Column: Shipping & Payment Details -->
+      <div>
+        <!-- Step 1: Shipping Address -->
+        <div class="checkout-card">
+          <div class="checkout-card-header">
+            <div class="step-circle">1</div>
+            <span>Shipping Address</span>
+          </div>
+
+          <div class="form-row">
+            <div>
+              <label class="form-label">Full Name *</label>
+              <input type="text" id="ship-name" class="form-control" required placeholder="John Doe">
+            </div>
+            <div>
+              <label class="form-label">Email Address *</label>
+              <input type="email" id="ship-email" class="form-control" required placeholder="john@example.com">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Street Address *</label>
+            <input type="text" id="ship-address" class="form-control" required placeholder="124 Conch Street, Apt 4B">
+          </div>
+
+          <div class="form-row">
+            <div>
+              <label class="form-label">City *</label>
+              <input type="text" id="ship-city" class="form-control" required placeholder="Seattle">
+            </div>
+            <div>
+              <label class="form-label">State / Province</label>
+              <input type="text" id="ship-state" class="form-control" placeholder="Washington">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div>
+              <label class="form-label">Postal / ZIP Code *</label>
+              <input type="text" id="ship-zip" class="form-control" required placeholder="98101">
+            </div>
+            <div>
+              <label class="form-label">Country</label>
+              <select id="ship-country" class="form-control">
+                <option value="United States">United States</option>
+                <option value="Canada">Canada</option>
+                <option value="United Kingdom">United Kingdom</option>
+                <option value="Australia">Australia</option>
+                <option value="Germany">Germany</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group" style="margin-bottom:0;">
+            <label class="form-label">Phone Number (For Delivery Updates)</label>
+            <input type="tel" id="ship-phone" class="form-control" placeholder="+1 (555) 000-0000">
+          </div>
+        </div>
+
+        <!-- Step 2: Payment Method -->
+        <div class="checkout-card">
+          <div class="checkout-card-header">
+            <div class="step-circle">2</div>
+            <span>Payment Method</span>
+          </div>
+
+          <!-- Payment Tabs -->
+          <div class="payment-tab-row">
+            <div class="payment-tab active" data-payment="card" onclick="selectPaymentMethod('card')">
+              <i class="fa-regular fa-credit-card" style="font-size:1.2rem;"></i>
+              <span>Credit / Debit Card</span>
+            </div>
+            <div class="payment-tab" data-payment="cod" onclick="selectPaymentMethod('cod')">
+              <i class="fa-solid fa-hand-holding-dollar" style="font-size:1.2rem;"></i>
+              <span>Cash on Delivery</span>
+            </div>
+            <div class="payment-tab" data-payment="paypal" onclick="selectPaymentMethod('paypal')">
+              <i class="fa-brands fa-paypal" style="font-size:1.2rem;"></i>
+              <span>PayPal Express</span>
+            </div>
+          </div>
+
+          <!-- Pane 1: Card -->
+          <div class="payment-pane" id="payment-pane-card">
+            <!-- Card Interactive Preview -->
+            <div class="card-preview">
+              <div class="card-preview-chip"></div>
+              <div class="card-preview-num" id="card-preview-number">•••• •••• •••• ••••</div>
+              <div class="card-preview-footer">
+                <div>
+                  <div style="font-size:0.65rem; color:#c7d2fe;">Cardholder</div>
+                  <div id="card-preview-name" style="font-weight:700;">YOUR NAME</div>
+                </div>
+                <div>
+                  <div style="font-size:0.65rem; color:#c7d2fe;">Expires</div>
+                  <div id="card-preview-exp" style="font-weight:700;">MM/YY</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Card Number</label>
+              <input type="text" id="card-number-input" class="form-control" placeholder="4532 8920 1823 4902" maxlength="19">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Name on Card</label>
+              <input type="text" id="card-name-input" class="form-control" placeholder="John Doe">
+            </div>
+
+            <div class="form-row">
+              <div>
+                <label class="form-label">Expiration Date</label>
+                <input type="text" id="card-expiry-input" class="form-control" placeholder="MM/YY" maxlength="5">
+              </div>
+              <div>
+                <label class="form-label">CVV / Security Code</label>
+                <input type="password" id="card-cvc-input" class="form-control" placeholder="123" maxlength="4">
+              </div>
+            </div>
+          </div>
+
+          <!-- Pane 2: Cash on Delivery -->
+          <div class="payment-pane" id="payment-pane-cod" style="display:none;">
+            <div style="background:#f8fafc; border:1px solid var(--border); border-radius:var(--radius-md); padding:20px; text-align:center;">
+              <i class="fa-solid fa-money-bill-wave" style="font-size:2.5rem; color:var(--success); margin-bottom:12px;"></i>
+              <h4 style="font-size:1.05rem; font-weight:800; margin-bottom:6px;">Pay with Cash on Delivery</h4>
+              <p style="font-size:0.85rem; color:var(--text-muted); max-width:400px; margin:0 auto;">
+                Pay securely in cash or mobile payment when your shipment arrives at your doorstep. No prepayment required.
+              </p>
+            </div>
+          </div>
+
+          <!-- Pane 3: PayPal -->
+          <div class="payment-pane" id="payment-pane-paypal" style="display:none;">
+            <div style="background:#f8fafc; border:1px solid var(--border); border-radius:var(--radius-md); padding:20px; text-align:center;">
+              <i class="fa-brands fa-paypal" style="font-size:2.5rem; color:#0070ba; margin-bottom:12px;"></i>
+              <h4 style="font-size:1.05rem; font-weight:800; margin-bottom:6px;">Instant PayPal Checkout</h4>
+              <p style="font-size:0.85rem; color:var(--text-muted); max-width:400px; margin:0 auto 16px;">
+                You will be seamlessly connected to PayPal to confirm your payment with buyer protection.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column: Order Summary Sidebar -->
+      <aside>
+        <div class="checkout-card" style="position:sticky; top:96px;">
+          <h3 style="font-size:1.2rem; font-weight:800; color:var(--dark); margin-bottom:16px;">Order Overview</h3>
+
+          <!-- Items list -->
+          <div id="checkout-items-list" style="max-height:260px; overflow-y:auto; border-bottom:1px solid var(--border); padding-bottom:14px; margin-bottom:16px;">
+            <!-- Rendered via checkout.js -->
+          </div>
+
+          <!-- Financial Breakdown -->
+          <div style="display:flex; justify-content:space-between; margin-bottom:10px; font-size:0.9rem;">
+            <span style="color:var(--text-muted);">Subtotal:</span>
+            <strong id="checkout-subtotal">$0.00</strong>
+          </div>
+
+          <div style="display:none; justify-content:space-between; margin-bottom:10px; font-size:0.9rem; color:var(--success);" id="checkout-discount-row">
+            <span>Coupon Discount:</span>
+            <strong id="checkout-discount">-$0.00</strong>
+          </div>
+
+          <div style="display:flex; justify-content:space-between; margin-bottom:10px; font-size:0.9rem;">
+            <span style="color:var(--text-muted);">Shipping:</span>
+            <span id="checkout-shipping">FREE</span>
+          </div>
+
+          <div style="display:flex; justify-content:space-between; margin-bottom:10px; font-size:0.9rem;">
+            <span style="color:var(--text-muted);">Estimated Tax (7%):</span>
+            <span id="checkout-tax">$0.00</span>
+          </div>
+
+          <div style="display:flex; justify-content:space-between; border-top:2px solid var(--border); padding-top:14px; margin-top:14px; font-size:1.3rem; font-weight:800; color:var(--dark);">
+            <span>Total:</span>
+            <span id="checkout-total" style="color:var(--primary);">$0.00</span>
+          </div>
+
+          <button type="submit" id="place-order-btn" class="btn btn-brand" style="width:100%; padding:14px; margin-top:24px; font-size:1rem;">
+            <i class="fa-solid fa-lock"></i> Complete Order
+          </button>
+
+          <p style="text-align:center; font-size:0.75rem; color:var(--text-light); margin-top:14px;">
+            By completing this order you agree to ShopSphere's Terms &amp; Conditions.
+          </p>
+        </div>
+      </aside>
+    </form>
+  </main>
+
+  <!-- Footer -->
+  <footer class="main-footer">
+    <div class="container footer-bottom">
+      <div>&copy; 2026 ShopSphere Inc. CodeAlpha Internship Task 1.</div>
+      <a href="/cart.html" style="color:white; font-weight:700;">Edit Cart &uarr;</a>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="/js/api.js"></script>
+  <script src="/js/main.js"></script>
+  <script src="/js/checkout.js"></script>
+</body>
+</html>
